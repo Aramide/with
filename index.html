@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="codebase/touchui.css" type="text/css" media="screen" charset="utf-8">
+		<script src="codebase/touchui.js" type="text/javascript" charset="utf-8"></script>
+		<title>APP4BRIDES</title>
+	</head>
+	<body>
+	<div id="scrollV" style="height:600px;width:600px"></div>
+	
+		<script type="text/javascript" charset="utf-8">
+			dhx.ready(function(){
+				dhx.ui({
+					container:"scrollV",
+					rows:[
+						{ view:"toolbar" , id:"top", type:"MainBar", elements:[
+							{ view:"segmented", id:"control1", options:[
+                                {value:"http://app4brides.com/mindexs.html/", 	label:"APP FOR BRIDES", selected:true},
+								{value:"http://app4brides.com/mall", 	label:"THE MALL"}
+							]}
+						]
+					},
+					{ view:"iframe", id:"bottom", src:"http://app4brides.com/mindexs.html/" }
+					]
+				});
+ 
+				$$("control1").attachEvent("onAfterTabClick",function(id, key){
+					$$('bottom').define("src", key);
+				});
+			});
+		</script>
+		
+	</body>
+</html>
